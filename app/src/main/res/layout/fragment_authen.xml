@@ -5,10 +5,60 @@
     android:layout_height="match_parent"
     tools:context=".AuthenFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!--Content   -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:orientation="vertical">
 
+        <!--Logo-->
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <!--App Name-->
+        <TextView
+            android:textColor="#1A1B7C"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:text="MeeFoodShop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <!--User-->
+        <EditText
+            android:inputType="text"
+            android:hint="User : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--Password-->
+        <EditText
+            android:inputType="textPassword"
+            android:hint="Password : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--Controller-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--Sign In-->
+            <Button
+                android:text="Sign In"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <!--Sign Up-->
+            <Button
+                android:text="Sign Up"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 </FrameLayout>
