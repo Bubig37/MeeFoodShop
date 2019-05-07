@@ -45,7 +45,7 @@ public class RegisterFragment extends Fragment {
         if (item.getItemId() == R.id.itemMenuRegister) {
             checkValue();
         }
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);  
     }
 
     private void checkValue() {
