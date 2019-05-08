@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 
 /**
@@ -19,6 +21,8 @@ import android.widget.EditText;
  */
 public class RegisterFragment extends Fragment {
 
+    private boolean aBoolean = true;
+    private String genderString;
 
     public RegisterFragment() {
         // Required empty public constructor
@@ -30,8 +34,27 @@ public class RegisterFragment extends Fragment {
 
         //    create toolbar
         createToolbar();
-
+//                Gender controller
+        genderController();
     } // Main method
+
+    private void genderController() {
+        RadioGroup radioGroup = getView().findViewById(R.id.radGender);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                aBoolean = false;
+                switch (checkedId) {
+                    case R.id.radMale:
+                        genderString = "Male";
+                        break;
+                    case R.id.radFemale:
+                        genderString = "Female";
+                        break;
+                }
+            }
+        });
+    }
 
 
     @Override
@@ -45,7 +68,7 @@ public class RegisterFragment extends Fragment {
         if (item.getItemId() == R.id.itemMenuRegister) {
             checkValue();
         }
-        return super.onOptionsItemSelected(item);  
+        return super.onOptionsItemSelected(item);
     }
 
     private void checkValue() {
@@ -53,6 +76,23 @@ public class RegisterFragment extends Fragment {
         EditText nameEditText = getView().findViewById(R.id.edtName);
         EditText userEditText = getView().findViewById(R.id.edtUser);
         EditText passwordEditText = getView().findViewById(R.id.edtPassword);
+
+        String name = nameEditText.getText().toString().trim();
+        String user = userEditText.getText().toString().trim();
+        String password = passwordEditText.getText().toString().trim();
+
+        MyAlert myAlert = new MyAlert(getActivity());
+
+        if (name.isEmpty() || user.isEmpty() || password.isEmpty()) {
+//            Have space
+            myAlert.normalDialog( "Have Space","Please Fill All Blank" );
+        } else if (aBoolean) {
+//            Non choose gender
+            myAlert.normalDialog("Gender Choose","Please Choose Gender");
+        } else {
+//            OK!!!!
+
+        }
     }
 
     private void createToolbar() {
