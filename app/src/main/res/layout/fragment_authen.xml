@@ -29,12 +29,14 @@
             android:layout_height="wrap_content" />
         <!--User-->
         <EditText
+            android:id="@+id/edtUser"
             android:inputType="text"
             android:hint="User : "
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <!--Password-->
         <EditText
+            android:id="@+id/edtPassword"
             android:inputType="textPassword"
             android:hint="Password : "
             android:layout_width="match_parent"
@@ -46,6 +48,7 @@
             android:layout_height="wrap_content">
             <!--Sign In-->
             <Button
+                android:id="@+id/btnSignIn"
                 android:text="Sign In"
                 android:layout_width="0dp"
                 android:layout_weight="1"
